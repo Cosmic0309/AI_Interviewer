@@ -1,3 +1,7 @@
+
+video started from 4rth second..
+https://github.com/user-attachments/assets/053af242-68a7-4408-b901-b796b095bed3
+
 # AI_Interviewer
 AI Interviewer is an AI-powered platform that analyzes resumes, generates personalized interview questions, conducts mock interviews, and provides instant feedback. Built with HTML, CSS, JS, Flask, and AI models, it helps users improve confidence, communication, and interview performance.
 
