@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interviewer - Smart Resume Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🎯</span>
+                <span class="logo-text">AI Interviewer</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#upload">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Transform Your Resume Into
+                <span class="hero-highlight">Interview Success</span>
+            </h1>
+            <p class="hero-description">
+                Our AI-powered interviewer analyzes your resume and conducts personalized mock interviews to help you
+                land your dream job.
+            </p>
+            <div class="hero-cta">
+                <a href="#upload" class="btn btn-primary">Upload Your Resume</a>
+                <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="visual-card">
+                <div class="card-icon">📄</div>
+                <div class="card-arrow">→</div>
+                <div class="card-icon">🤖</div>
+                <div class="card-arrow">→</div>
+                <div class="card-icon">✨</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="section-header">
+            <h2 class="section-title">Why Choose AI Interviewer?</h2>
+            <p class="section-subtitle">Intelligent resume analysis meets personalized interview preparation</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3 class="feature-title">Smart Resume Analysis</h3>
+                <p class="feature-description">Our AI analyzes your resume to identify strengths, gaps, and areas for
+                    improvement.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3 class="feature-title">Personalized Questions</h3>
+                <p class="feature-description">Get interview questions tailored to your experience and the roles you're
+                    targeting.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Detailed Feedback</h3>
+                <p class="feature-description">Receive actionable insights and recommendations to improve your interview
+                    performance.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="section-header">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Three simple steps to interview success</p>
+        </div>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Upload Resume</h3>
+                <p class="step-description">Upload your resume in PDF format. Our system securely processes your
+                    document.</p>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3 class="step-title">AI Analysis</h3>
+                <p class="step-description">Our AI analyzes your experience, skills, and qualifications to create
+                    personalized questions.</p>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Practice & Improve</h3>
+                <p class="step-description">Answer AI-generated questions and receive detailed feedback to ace your
+                    interviews.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section id="upload" class="upload-section">
+        <div class="upload-container">
+            <h2 class="upload-title">Ready to Get Started?</h2>
+            <p class="upload-subtitle">Upload your resume and let our AI help you prepare for success</p>
+
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📎</div>
+                <h3 class="upload-text">Drop your PDF here or click to browse</h3>
+                <p class="upload-hint">Supported format: PDF (Max 10MB)</p>
+                <input type="file" id="fileInput" accept=".pdf" hidden>
+                <button class="btn btn-upload" id="browseBtn">Browse Files</button>
+            </div>
+
+            <div class="upload-progress" id="uploadProgress" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p class="progress-text" id="progressText">Uploading... 0%</p>
+            </div>
+
+            <div class="upload-success" id="uploadSuccess" style="display: none;">
+                <div id="questionsContainer" style="display:none;">
+                    <h3>Generated Interview Questions</h3>
+                    <pre id="questionsOutput"></pre>
+                </div>
+                <div id="interviewSection">
+                    <h3>Your Answer</h3>
+                    <textarea id="answerBox" rows="6" placeholder="Type your answer here..."></textarea>
+                    <br><br>
+                    <button id="submitAnswer">
+                        Submit Answer
+                    </button>
+                    <div id="feedback"></div>
+                </div>
+                <div class="success-icon">✅</div>
+                <h3 class="success-title">Resume Uploaded Successfully!</h3>
+                <p class="success-message">Your resume has been analyzed. Preparing your personalized interview...</p>
+            </div>
+
+            <div class="upload-error" id="uploadError" style="display: none;">
+                <div class="error-icon">❌</div>
+                <h3 class="error-title">Upload Failed</h3>
+                <p class="error-message" id="errorMessage">Something went wrong. Please try again.</p>
+                <button class="btn btn-secondary" id="retryBtn">Try Again</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <span class="logo-icon">🎯</span>
+                    <span class="logo-text">AI Interviewer</span>
+                </div>
+                <p class="footer-description">Empowering students with AI-driven interview preparation.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#upload">Get Started</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-heading">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 AI Interviewer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
